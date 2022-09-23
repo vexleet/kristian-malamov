@@ -14,7 +14,7 @@ const InfoListItem: FC<InfoListItemProps> = ({ title, body }) => {
   return (
     <Typography variant="body1" color="secondary" fontWeight="bold">
       {title}:
-      <Typography variant="inherit" fontWeight="normal" display="inline" ml={1}>
+      <Typography variant="caption" fontSize={16} fontWeight="normal" display="inline" ml={1}>
         {body}
       </Typography>
     </Typography>
@@ -44,7 +44,7 @@ const AboutMe = () => {
         <Box>
           <Grid container rowGap={2}>
             {aboutMeInfo.map((item) => (
-              <Grid xs={6} item>
+              <Grid xs={6} item key={item.title + item.body}>
                 <InfoListItem title={item.title} body={item.body} />
               </Grid>
             ))}
