@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import SectionLayout from './layouts/SectionLayout';
 import AboutMe from './components/AboutMe/AboutMe';
 import ContactForm from './components/ContactForm/ContactForm';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <SectionLayout title="Get in touch" subTitle="Feel free to contact me anytime" id="contact">
         <ContactForm />
       </SectionLayout>
+      <Footer />
     </>
   );
 }
