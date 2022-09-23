@@ -1,6 +1,13 @@
 import { Box, Typography } from '@mui/material';
 import Image from 'mui-image';
 import HeroImage from './HeroImage';
+import ScrollDownMouse from './ScrollDownMouse';
+import styled from '@emotion/styled';
+
+const ScrollDownMouseWrapper = styled.div`
+  position: absolute;
+  bottom: 30px;
+`;
 
 const Header = () => {
   return (
@@ -24,9 +31,13 @@ const Header = () => {
         <Typography variant="h2" fontWeight="bold" color="primary">
           Kristian Malamov
         </Typography>
-        <Typography variant="body1" color="white">
+        <Typography variant="h6" color="white">
           Creative Front-End Developer on the lookout for new challenges
         </Typography>
+
+        <ScrollDownMouseWrapper>
+          <ScrollDownMouse />
+        </ScrollDownMouseWrapper>
       </Box>
     </Box>
   );
