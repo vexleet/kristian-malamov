@@ -4,12 +4,13 @@ import { Box, Container, Typography } from '@mui/material';
 type SectionLayoutProps = {
   title: string;
   subTitle: string;
+  id: string;
   children: ReactNode;
 };
 
-const SectionLayout: FC<SectionLayoutProps> = ({ children, subTitle, title }) => {
+const SectionLayout: FC<SectionLayoutProps> = ({ children, subTitle, title, id }) => {
   return (
-    <Container>
+    <Container id={id}>
       <Box pt={8} pb={5}>
         <Typography variant="h3" mb={1} fontWeight="bold">
           {title}

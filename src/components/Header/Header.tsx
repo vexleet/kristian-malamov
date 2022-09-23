@@ -11,7 +11,7 @@ const ScrollDownMouseWrapper = styled.div`
 
 const Header = () => {
   return (
-    <Box height="100vh">
+    <Box height="100vh" id="home">
       <Box
         height="100%"
         display="flex"

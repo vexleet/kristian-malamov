@@ -12,8 +12,17 @@ const NavigationContainerWrapper = styled(Box)`
   transition: background-color 0.5s ease-out;
 `;
 
+type NavigationItem = {
+  title: string;
+  href: string;
+};
+
 const Navigation: FC = () => {
-  const items = ['Home', 'About', 'Portfolio'];
+  const items: NavigationItem[] = [
+    { title: 'Home', href: '#home' },
+    { title: 'About', href: '#aboutme' },
+    { title: 'Portfolio', href: '#portfolio' }
+  ];
   const theme = useTheme();
 
   const [scrollDir, setScrollDir] = useState('scrolling down');
@@ -74,10 +83,12 @@ const Navigation: FC = () => {
               alignItems="center"
               gap={5}>
               {items.map((item) => (
-                <NavigationLinkItem key={item}>{item}</NavigationLinkItem>
+                <NavigationLinkItem key={item.title} href={item.href}>
+                  {item.title}
+                </NavigationLinkItem>
               ))}
 
-              <Button color="primary" variant="outlined">
+              <Button color="primary" variant="outlined" href="#contact">
                 Contact me
               </Button>
             </Box>

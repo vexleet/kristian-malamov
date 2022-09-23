@@ -10,10 +10,10 @@ function App() {
     <>
       <Navigation />
       <Header />
-      <SectionLayout title="About me" subTitle="Get to know me">
+      <SectionLayout title="About me" subTitle="Get to know me" id="aboutme">
         <AboutMe />
       </SectionLayout>
-      <SectionLayout title="Get in touch" subTitle="Feel free to contact me anytime">
+      <SectionLayout title="Get in touch" subTitle="Feel free to contact me anytime" id="contact">
         <ContactForm />
       </SectionLayout>
     </>
