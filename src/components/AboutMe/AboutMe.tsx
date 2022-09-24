@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Typography } from '@mui/material';
+import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import Image from 'mui-image';
 import { FC } from 'react';
 import WhoAmI from './WhoAmI';
@@ -34,14 +34,14 @@ const AboutMe = () => {
   return (
     <Grid container alignItems="center">
       <Grid xs={5} item paddingRight={10}>
-        <Image src="src/assets/images/me.png" height={430} />
+        <Image src="me.png" height={430} />
       </Grid>
       <Grid xs={7} item>
         <WhoAmI />
-        <Box my={4}>
+        <Box my={2}>
           <Divider />
         </Box>
-        <Box>
+        <Box mb={2}>
           <Grid container rowGap={2}>
             {aboutMeInfo.map((item) => (
               <Grid xs={6} item key={item.title + item.body}>
@@ -50,6 +50,10 @@ const AboutMe = () => {
             ))}
           </Grid>
         </Box>
+
+        <Button color="primary" variant="contained" href="CV.pdf" target="_blank">
+          Download CV
+        </Button>
       </Grid>
     </Grid>
   );

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
 import Image from 'mui-image';
 import HeroImage from './HeroImage';
 import ScrollDownMouse from './ScrollDownMouse';
@@ -22,7 +22,7 @@ const Header = () => {
         position="relative">
         <HeroImage />
         <Image
-          src="src/assets/images/kma-circle-250.png"
+          src="kma-circle-250.png"
           height={150}
           width={150}
           bgColor="transparent"
@@ -36,7 +36,9 @@ const Header = () => {
         </Typography>
 
         <ScrollDownMouseWrapper>
-          <ScrollDownMouse />
+          <Link href="#aboutme">
+            <ScrollDownMouse />
+          </Link>
         </ScrollDownMouseWrapper>
       </Box>
     </Box>

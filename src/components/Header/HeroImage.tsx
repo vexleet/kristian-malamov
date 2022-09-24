@@ -10,7 +10,7 @@ const HeaderImage = styled.img`
 `;
 
 const HeroImage = () => {
-  return <HeaderImage src="src/assets/images/header-aarhus.jpg" />;
+  return <HeaderImage src="header-aarhus.jpg" />;
 };
 
 export default HeroImage;
