@@ -1,54 +1,38 @@
-import { Box, Button, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
-import { useState } from 'react';
-import styled from '@emotion/styled';
+import { Box, Grid } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { PortfolioACF } from '../../types/Portfolio';
+import PorfolioPostItem from './PorfolioPostItem';
 
-const ProjectCard = styled(Card)`
-  position: relative;
-  max-height: 250px;
-`;
-
-const ProjectContent = styled(CardContent)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 20;
-  background-color: rgba(243, 9, 78, 1);
-  transition: opacity 0.2s ease-in;
-`;
+type PortoflioPost = {
+  acf: PortfolioACF;
+};
 
 const MyWork = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [portfolioPosts, setPortfolioPosts] = useState<PortoflioPost[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(
+        'https://api.kristianmalamov.com/wp-json/wp/v2/posts?categories=4'
+      );
+      const postData: PortoflioPost[] = await response.json();
+
+      setPortfolioPosts(postData);
+    })();
+  }, []);
 
   return (
     <Box>
-      <Grid container>
-        <Grid xs={4} item>
-          <ProjectCard
-            onMouseOver={() => setIsHovered(true)}
-            onMouseOut={() => setIsHovered(false)}>
-            <CardMedia component="img" image="header-aarhus.jpg" height="100%" width="100%" />
-            <ProjectContent style={{ opacity: isHovered ? 1 : 0 }}>
-              <Box
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="center"
-                height="100%">
-                <Typography
-                  variant="body1"
-                  fontWeight="600"
-                  color="white"
-                  textAlign="center"
-                  marginBottom={2}>
-                  Small component from Front End Mentor challenges.
-                </Typography>
-                <Button variant="outlined">Visit project</Button>
-              </Box>
-            </ProjectContent>
-          </ProjectCard>
-        </Grid>
+      <Grid container spacing={2}>
+        {portfolioPosts.map((post) => (
+          <Grid xs={4} item>
+            <PorfolioPostItem
+              body={post.acf.body}
+              image={post.acf.image}
+              website={post.acf.website}
+            />
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );
