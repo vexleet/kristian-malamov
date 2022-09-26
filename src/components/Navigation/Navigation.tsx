@@ -8,7 +8,7 @@ const NavigationContainerWrapper = styled(Box)`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 20000;
   transition: background-color 0.5s ease-out;
 `;
 
