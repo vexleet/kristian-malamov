@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, CardMedia, Typography, useTheme } from '@mui/material';
+import { Box, Button, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { PortfolioACF } from '../../types/Portfolio';
 import { FC, useState } from 'react';
 import styled from '@emotion/styled';
@@ -23,8 +23,6 @@ const ProjectContent = styled(CardContent)`
 type PorfolioPostItemProps = PortfolioACF;
 
 const PorfolioPostItem: FC<PorfolioPostItemProps> = ({ image, body, website }) => {
-  const theme = useTheme();
-
   const [isHovered, setIsHovered] = useState(false);
 
   return (
